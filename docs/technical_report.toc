@@ -1,40 +1,9 @@
-\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Objectives}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Scope}{3}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Architecture \& System Design}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Architectural Pattern}{3}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Project Structure}{3}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Data Model Design}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Question Entity}{4}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Field Descriptions}{5}{subsubsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.2}Enumerations}{5}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Category Enum}{5}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Difficulty Enum}{5}{subsubsection.3.2.2}%
-\contentsline {section}{\numberline {4}Data Layer Implementation}{5}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Question Loader}{5}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Error Handling}{6}{subsubsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.2}Question Repository}{6}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Repository Benefits}{7}{subsubsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.3}Image Resource Mapping}{7}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Data Format \& JSON Schema}{7}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Asset File Location}{7}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}JSON Schema}{7}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}JSON Field Mapping}{8}{subsubsection.5.2.1}%
-\contentsline {section}{\numberline {6}Technology Stack \& Dependencies}{8}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Build Configuration}{8}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Key Libraries}{8}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Usage Examples}{9}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Loading Questions in ViewModel}{9}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Dependency Injection Pattern}{9}{subsection.7.2}%
-\contentsline {section}{\numberline {8}Testing Strategy}{9}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Unit Testing Approach}{9}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Integration Testing}{10}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Future Enhancements \& Roadmap}{10}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Short Term}{10}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Medium Term}{10}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Long Term}{10}{subsection.9.3}%
-\contentsline {section}{\numberline {10}Conclusion}{10}{section.10}%
-\contentsline {section}{\numberline {A}Build \& Deployment}{13}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Gradle Build Commands}{13}{subsection.A.1}%
-\contentsline {section}{\numberline {B}Gradle Configuration}{13}{appendix.B}%
-\contentsline {section}{\numberline {C}Git Commit History}{13}{appendix.C}%
+\contentsline {section}{\numberline {1}Architecture Components}{2}{section.1}%
+\contentsline {section}{\numberline {2}Navigation Component}{2}{section.2}%
+\contentsline {section}{\numberline {3}Activity Lifecycle}{2}{section.3}%
+\contentsline {section}{\numberline {4}Testing Coverage}{2}{section.4}%
+\contentsline {section}{\numberline {5}Adaptive UI}{3}{section.5}%
+\contentsline {section}{\numberline {6}UI/UX}{3}{section.6}%
+\contentsline {section}{\numberline {7}Functionality}{3}{section.7}%
+\contentsline {section}{\numberline {8}Code Quality}{4}{section.8}%
+\contentsline {section}{\numberline {9}Conclusion}{4}{section.9}%
