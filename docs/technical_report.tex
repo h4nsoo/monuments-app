@@ -1,0 +1,608 @@
+%!TEX program = xelatex
+\documentclass[12pt,a4paper,oneside]{article}
+
+% ==================== Packages ====================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{array}
+\usepackage{multirow}
+
+% ==================== Code Listing Setup ====================
+\lstset{
+    language=Kotlin,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    breaklines=true,
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    frame=single,
+    rulecolor=\color{black!30},
+    backgroundcolor=\color{gray!5},
+    captionpos=b,
+    tabsize=4,
+}
+
+% ==================== Header & Footer ====================
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small \textit{TuniQuest: Technical Report}}
+\rhead{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ==================== Hyperlink Colors ====================
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+% ==================== Custom Commands ====================
+\newcommand{\code}[1]{\texttt{\small #1}}
+\newcommand{\refsec}[1]{Section~\ref{sec:#1}}
+\newcommand{\reffig}[1]{Figure~\ref{fig:#1}}
+\newcommand{\reftab}[1]{Table~\ref{tab:#1}}
+
+% ==================== Document Start ====================
+\begin{document}
+
+% ==================== Title Page ====================
+\title{
+    \textbf{TuniQuest: Android Quiz Application}\\
+    \vspace{0.5cm}
+    \large{Technical Report}
+}
+\author{
+    Mohamed Belgacem\\
+    \small{\textit{Android Development}}
+}
+\date{\today}
+
+\maketitle
+
+% ==================== Abstract ====================
+\begin{abstract}
+    \noindent
+    This technical report details the design, implementation, and architecture of TuniQuest, a production-ready Android application built with Kotlin and Jetpack Compose. The application delivers an interactive quiz experience focused on Tunisian heritage, employing a clean architecture pattern with separation of concerns between UI, data, and presentation layers. This report covers the project structure, key technologies, data model design, and the implementation of the question loading and repository system using JSON assets and Gson serialization.
+    
+    \vspace{0.3cm}
+    \noindent
+    \textbf{Keywords:} Android, Kotlin, Jetpack Compose, MVVM, Clean Architecture, Gson, JSON
+\end{abstract}
+
+% ==================== Table of Contents ====================
+\newpage
+\tableofcontents
+\newpage
+
+% ==================== 1. Introduction ====================
+\section{Introduction}
+\label{sec:intro}
+
+TuniQuest is a Kotlin-based Android application designed to deliver engaging educational content about Tunisian heritage through an interactive quiz format. The application implements industry best practices in Android development, leveraging modern frameworks such as Jetpack Compose for UI design and following MVVM (Model-View-ViewModel) architectural patterns.
+
+\subsection{Objectives}
+\label{sec:objectives}
+
+\begin{enumerate}
+    \item Provide a robust, maintainable codebase with clear separation of concerns
+    \item Implement a production-ready data layer for question management
+    \item Create a responsive, modern user interface using Jetpack Compose
+    \item Establish a solid foundation for future feature expansion
+    \item Ensure code quality and testability throughout the application
+\end{enumerate}
+
+\subsection{Scope}
+\label{sec:scope}
+
+This report focuses on the architectural design and implementation of the core data layer, question loading mechanism, and repository pattern. The UI implementation and ViewModel wiring are beyond the scope of this initial release but are designed with extensibility in mind.
+
+% ==================== 2. Architecture & Design ====================
+\section{Architecture \& System Design}
+\label{sec:architecture}
+
+\subsection{Architectural Pattern}
+\label{sec:arch-pattern}
+
+TuniQuest employs a \textbf{Clean Architecture} approach with layered separation:
+
+\begin{itemize}
+    \item \textbf{Presentation Layer}: Jetpack Compose screens, Navigation, and UI state management
+    \item \textbf{ViewModel Layer}: StateFlow-based state holders for business logic coordination
+    \item \textbf{Data Layer}: Repository pattern, data models, and data sources (loaders)
+    \item \textbf{Model Layer}: Domain entities representing core concepts (Question, Category, Difficulty)
+\end{itemize}
+
+\subsection{Project Structure}
+\label{sec:project-structure}
+
+\begin{lstlisting}[language=text, caption={Project directory layout}]
+com/example/mohamedbelgacem/
+├── data/
+│   ├── model/
+│   │   ├── Question.kt
+│   │   ├── Category.kt
+│   │   └── Difficulty.kt
+│   ├── loader/
+│   │   └── QuestionLoader.kt
+│   └── repository/
+│       └── QuestionRepository.kt
+├── ui/
+│   ├── screens/
+│   │   ├── SplashScreen.kt
+│   │   ├── MainMenuScreen.kt
+│   │   ├── CategoryScreen.kt
+│   │   ├── QuizScreen.kt
+│   │   ├── SettingsScreen.kt
+│   │   └── ResultScreen.kt
+│   ├── theme/
+│   │   ├── Color.kt
+│   │   ├── Theme.kt
+│   │   └── Type.kt
+│   └── components/
+├── viewmodel/
+│   └── QuizViewModel.kt
+├── navigation/
+│   ├── NavRoutes.kt
+│   └── AppNavigation.kt
+└── MainActivity.kt
+\end{lstlisting}
+
+% ==================== 3. Data Model ====================
+\section{Data Model Design}
+\label{sec:data-model}
+
+\subsection{Question Entity}
+\label{sec:question-entity}
+
+The \code{Question} data class represents a single quiz question with the following structure:
+
+\begin{lstlisting}[caption={Question data class definition}]
+data class Question(
+    val id: Int,
+    val image: String,
+    val question: String,
+    val options: List<String>,
+    val correctAnswer: Int,
+    val category: Category,
+    val difficulty: Difficulty
+)
+\end{lstlisting}
+
+\subsubsection{Field Descriptions}
+
+\begin{table}[H]
+    \centering
+    \caption{Question Entity Fields}
+    \label{tab:question-fields}
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \textbf{Field} & \textbf{Type} & \textbf{Description} \\
+        \hline
+        id & Int & Unique identifier for the question \\
+        \hline
+        image & String & Drawable resource name (e.g., ``eljem'') \\
+        \hline
+        question & String & The quiz question text \\
+        \hline
+        options & List<String> & List of answer options \\
+        \hline
+        correctAnswer & Int & Index of correct answer (0-based) \\
+        \hline
+        category & Category & Enum classifying heritage era \\
+        \hline
+        difficulty & Difficulty & Enum indicating question difficulty \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Enumerations}
+\label{sec:enums}
+
+\subsubsection{Category Enum}
+
+The \code{Category} enum classifies questions by historical period or theme:
+
+\begin{lstlisting}[caption={Category enumeration}]
+enum class Category {
+    ROMAN,      // Roman period heritage
+    ISLAMIC,    // Islamic heritage
+    PUNIC,      // Punic/Phoenician period
+    MODERN,     // Modern Tunisian heritage
+    NATURAL,    // Natural heritage and geography
+    CITIES      // Major Tunisian cities
+}
+\end{lstlisting}
+
+\subsubsection{Difficulty Enum}
+
+The \code{Difficulty} enum represents three levels of question complexity:
+
+\begin{lstlisting}[caption={Difficulty enumeration}]
+enum class Difficulty {
+    EASY,       // Basic knowledge level
+    MEDIUM,     // Intermediate understanding
+    HARD        // Advanced/expert level
+}
+\end{lstlisting}
+
+% ==================== 4. Data Layer Implementation ====================
+\section{Data Layer Implementation}
+\label{sec:data-layer}
+
+\subsection{Question Loader}
+\label{sec:loader}
+
+The \code{QuestionLoader} class is responsible for reading and parsing question data from a JSON asset file:
+
+\begin{lstlisting}[caption={QuestionLoader class structure}]
+class QuestionLoader(private val context: Context) {
+    
+    fun loadQuestions(): List<Question> {
+        return try {
+            val inputStream = context.assets.open("roman_questions.json")
+            val json = inputStream.bufferedReader().use { 
+                it.readText() 
+            }
+            
+            val gson = Gson()
+            val questions: List<Question> = 
+                gson.fromJson(json, object : TypeToken<List<Question>>(){}.type)
+            
+            questions
+        } catch (e: Exception) {
+            emptyList()
+        }
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Error Handling}
+
+The loader implements defensive error handling:
+\begin{itemize}
+    \item Wraps asset loading in try-catch
+    \item Returns empty list on any exception (IOException, JsonSyntaxException)
+    \item Prevents application crashes from malformed JSON
+\end{itemize}
+
+\subsection{Question Repository}
+\label{sec:repository}
+
+The \code{QuestionRepository} provides a clean abstraction over data sources and implements filtering logic:
+
+\begin{lstlisting}[caption={QuestionRepository interface and implementation}]
+class QuestionRepository(private val loader: QuestionLoader) {
+    
+    fun getAllQuestions(): List<Question> {
+        return loader.loadQuestions()
+    }
+    
+    fun getQuestionsByCategoryAndDifficulty(
+        category: Category,
+        difficulty: Difficulty
+    ): List<Question> {
+        return loader.loadQuestions()
+            .filter { it.category == category && it.difficulty == difficulty }
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Repository Benefits}
+
+\begin{itemize}
+    \item \textbf{Abstraction}: Hides data source implementation details
+    \item \textbf{Testability}: Easy to mock for unit tests
+    \item \textbf{Flexibility}: Can switch between JSON, database, or API without UI changes
+    \item \textbf{Filtering}: Provides domain-specific query methods
+\end{itemize}
+
+\subsection{Image Resource Mapping}
+\label{sec:image-mapping}
+
+Images are referenced by name string in the JSON and resolved at runtime using Android's resource resolution:
+
+\begin{lstlisting}[caption={Image resource resolution helper}]
+fun getImageResId(context: Context, imageName: String): Int {
+    return context.resources.getIdentifier(
+        imageName,
+        "drawable",
+        context.packageName
+    )
+}
+\end{lstlisting}
+
+This approach enables:
+\begin{itemize}
+    \item JSON-driven image assignments
+    \item Runtime validation of drawable existence
+    \item Safe fallback to default resource if not found
+\end{itemize}
+
+% ==================== 5. Data Format ====================
+\section{Data Format \& JSON Schema}
+\label{sec:json-schema}
+
+\subsection{Asset File Location}
+
+Questions are stored in: \code{app/src/main/assets/roman\_questions.json}
+
+\subsection{JSON Schema}
+
+\begin{lstlisting}[language=json, caption={Sample question JSON structure}]
+[
+  {
+    "id": 1,
+    "image": "eljem",
+    "question": "What is the Roman name for Tunisia?",
+    "options": ["Africa", "Numidia", "Mauretania", "Egypt"],
+    "correctAnswer": 0,
+    "category": "ROMAN",
+    "difficulty": "EASY"
+  },
+  {
+    "id": 2,
+    "image": "dougga",
+    "question": "Which Roman emperor visited Dougga?",
+    "options": ["Augustus", "Caracalla", "Trajan", "Hadrian"],
+    "correctAnswer": 1,
+    "category": "ROMAN",
+    "difficulty": "HARD"
+  }
+]
+\end{lstlisting}
+
+\subsubsection{JSON Field Mapping}
+
+Fields in the JSON directly correspond to \code{Question} data class properties:
+\begin{itemize}
+    \item String enum values (``ROMAN'', ``EASY'') are automatically deserialized by Gson
+    \item \code{correctAnswer} is a 0-based index into the \code{options} array
+    \item \code{image} should reference a drawable resource (without file extension)
+\end{itemize}
+
+% ==================== 6. Technology Stack ====================
+\section{Technology Stack \& Dependencies}
+\label{sec:tech-stack}
+
+\subsection{Build Configuration}
+
+\begin{table}[H]
+    \centering
+    \caption{Project Dependencies}
+    \label{tab:dependencies}
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Component} & \textbf{Version} \\
+        \hline
+        Kotlin & 2.0.21 \\
+        \hline
+        Android Gradle Plugin (AGP) & 9.0.1 \\
+        \hline
+        Compose BOM & 2024.11.01 \\
+        \hline
+        Jetpack Compose Material3 & Latest via BOM \\
+        \hline
+        Navigation Compose & Latest via catalog \\
+        \hline
+        ViewModel (lifecycle) & Latest via catalog \\
+        \hline
+        Gson & 2.8.9+ \\
+        \hline
+        Java Target & 11 \\
+        \hline
+        Min SDK & 24 \\
+        \hline
+        Target SDK & 34 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Key Libraries}
+
+\begin{itemize}
+    \item \textbf{Jetpack Compose}: Modern declarative UI framework
+    \item \textbf{Navigation Compose}: Type-safe navigation routing
+    \item \textbf{Gson}: JSON serialization/deserialization
+    \item \textbf{ViewModel}: Lifecycle-aware state management
+    \item \textbf{StateFlow}: Reactive state container
+\end{itemize}
+
+% ==================== 7. Usage Examples ====================
+\section{Usage Examples}
+\label{sec:usage}
+
+\subsection{Loading Questions in ViewModel}
+\label{sec:usage-viewmodel}
+
+\begin{lstlisting}[caption={Using repository in ViewModel (future implementation)}]
+class QuizViewModel(
+    private val repository: QuestionRepository
+) : ViewModel() {
+    
+    private val _questions = MutableStateFlow<List<Question>>(emptyList())
+    val questions: StateFlow<List<Question>> = _questions.asStateFlow()
+    
+    fun loadQuestions(category: Category, difficulty: Difficulty) {
+        viewModelScope.launch {
+            _questions.value = repository
+                .getQuestionsByCategoryAndDifficulty(category, difficulty)
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{Dependency Injection Pattern}
+
+\begin{lstlisting}[caption={Instantiation in MainActivity (example)}]
+val loader = QuestionLoader(context)
+val repository = QuestionRepository(loader)
+val viewModel = QuizViewModel(repository)
+
+// Or with dependency injection framework (future):
+// val repository = hilt_inject<QuestionRepository>()
+\end{lstlisting}
+
+% ==================== 8. Testing & Quality ====================
+\section{Testing Strategy}
+\label{sec:testing}
+
+\subsection{Unit Testing Approach}
+
+\begin{itemize}
+    \item \textbf{Loader Tests}: Verify JSON parsing with mock assets
+    \item \textbf{Repository Tests}: Mock loader and verify filtering logic
+    \item \textbf{Model Tests}: Validate enum behavior and data class properties
+\end{itemize}
+
+\subsection{Integration Testing}
+
+\begin{itemize}
+    \item End-to-end loading: Asset → Loader → Repository → ViewModel
+    \item Real JSON asset validation in instrumented tests
+\end{itemize}
+
+% ==================== 9. Future Enhancements ====================
+\section{Future Enhancements \& Roadmap}
+\label{sec:future}
+
+\subsection{Short Term}
+
+\begin{enumerate}
+    \item Complete ViewModel wiring to repository
+    \item Implement navigation flow between screens
+    \item Add unit and integration tests
+    \item Wire UI buttons to navigation and ViewModel
+\end{enumerate}
+
+\subsection{Medium Term}
+
+\begin{enumerate}
+    \item Migrate to Room database for local persistence
+    \item Implement user progress tracking
+    \item Add analytics and telemetry
+    \item Implement dependency injection with Hilt
+\end{enumerate}
+
+\subsection{Long Term}
+
+\begin{enumerate}
+    \item Remote API integration for dynamic content
+    \item Multiplayer quiz mode
+    \item Leaderboard system
+    \item Localization (AR, FR, EN)
+    \item Offline-first architecture with sync
+\end{enumerate}
+
+% ==================== 10. Conclusion ====================
+\section{Conclusion}
+\label{sec:conclusion}
+
+TuniQuest provides a solid, production-ready foundation for an educational quiz application. The clean architecture, clear separation of concerns, and modern technology stack enable:
+
+\begin{itemize}
+    \item \textbf{Maintainability}: Easy to understand and modify
+    \item \textbf{Testability}: Well-designed components for unit testing
+    \item \textbf{Scalability}: Ready for additional features and data sources
+    \item \textbf{Developer Experience}: Modern Kotlin and Compose reduce boilerplate
+\end{itemize}
+
+The data layer implementation using JSON assets and the repository pattern establishes best practices that will serve the project as it evolves.
+
+% ==================== References ====================
+\newpage
+\begin{thebibliography}{99}
+
+\bibitem{compose} Google. \textit{Jetpack Compose Documentation}. Available at: \url{https://developer.android.com/jetpack/compose}
+
+\bibitem{mvvm} Microsoft Patterns \& Practices. \textit{MVVM Architecture Pattern}. Available at: \url{https://learn.microsoft.com/en-us/dotnet/architecture/maui/mvvm}
+
+\bibitem{clean} Robert C. Martin. \textit{Clean Architecture: A Craftsman's Guide to Software Structure and Design}. Prentice Hall, 2017.
+
+\bibitem{gson} Google. \textit{Gson: Java Serialization Library}. Available at: \url{https://github.com/google/gson}
+
+\bibitem{android-arch} Google. \textit{Android Architecture Components}. Available at: \url{https://developer.android.com/topic/libraries/architecture}
+
+\end{thebibliography}
+
+% ==================== Appendix ====================
+\newpage
+\appendix
+
+\section{Build \& Deployment}
+\label{app:build}
+
+\subsection{Gradle Build Commands}
+
+\begin{lstlisting}[language=bash, caption={Common build tasks}]
+# Compile debug APK
+./gradlew compileDebugKotlin
+
+# Build debug APK
+./gradlew assembleDebug
+
+# Run lint checks
+./gradlew lint
+
+# Install and run on device
+./gradlew installDebug
+
+# Full build with tests
+./gradlew build
+\end{lstlisting}
+
+\section{Gradle Configuration}
+\label{app:gradle}
+
+Key settings from \code{app/build.gradle.kts}:
+
+\begin{lstlisting}[language=kotlin, caption={Gradle module configuration}]
+android {
+    namespace = "com.example.mohamedbelgacem"
+    compileSdk = 34
+    
+    defaultConfig {
+        applicationId = "com.example.mohamedbelgacem"
+        minSdk = 24
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0.0"
+    }
+    
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+\end{lstlisting}
+
+\section{Git Commit History}
+\label{app:git}
+
+Recent commits:
+\begin{itemize}
+    \item \code{data layer} – Implemented QuestionLoader, QuestionRepository, and question models
+    \item \code{TuniQuest rebranding} – Updated app name, theme, and project structure
+    \item \code{Initial Compose scaffold} – Created project foundation with MVVM and navigation
+\end{itemize}
+
+\end{document}
