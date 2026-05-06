@@ -1,11 +1,5 @@
 package com.example.mohamedbelgacem.navigation
 
-/**
- * Navigation Routes for Tunisia Heritage Quest App
- *
- * Defines all navigation routes used in the app.
- * Each route can include parameters for data passing between screens.
- */
 object NavRoutes {
     const val SPLASH = "splash"
     const val MENU = "menu"

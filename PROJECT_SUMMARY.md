@@ -1,8 +1,8 @@
-# Tunisia Heritage Quest - Android Project Foundation
+# TuniQuest - Android Project Foundation
 
 ## 🎉 Project Setup Complete
 
-This is a production-ready Android project foundation for **Tunisia Heritage Quest**, a quiz application built with Kotlin and Jetpack Compose.
+This is a production-ready Android project foundation for **TuniQuest**, a quiz application built with Kotlin and Jetpack Compose.
 
 ### ✅ Build Status
 
@@ -35,9 +35,9 @@ MohamedBelgacem/
 │       │   │   │   └── ResultScreen.kt
 │       │   │   ├── components/       # Reusable UI components (placeholder)
 │       │   │   └── theme/            # Theme configuration
-│       │   │       ├── Color.kt      # Tunisia Heritage Quest colors
+│       │   │       ├── Color.kt      # TuniQuest colors
 │       │   │       ├── Type.kt       # Typography system
-│       │   │       └── Theme.kt      # TunisiaHeritageQuestTheme
+│       │   │       └── Theme.kt      # TuniQuestTheme
 │       │   ├── data/
 │       │   │   ├── model/            # Data models
 │       │   │   │   ├── Question.kt
@@ -242,7 +242,7 @@ androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4
 ✅ **UI/UX**
 
 - Material Design 3 compliance
-- Custom Tunisia Heritage Quest theme
+- Custom TuniQuest theme
 - Responsive layouts with Jetpack Compose
 - Minimal, clean screen designs
 

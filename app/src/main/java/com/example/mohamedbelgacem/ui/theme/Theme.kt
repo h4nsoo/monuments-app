@@ -5,10 +5,6 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
-/**
- * Light color scheme for Tunisia Heritage Quest
- * Features Mediterranean blue and sand tones
- */
 private val LightColorScheme = lightColorScheme(
     primary = PrimaryBlue,
     onPrimary = Cream,
@@ -36,10 +32,6 @@ private val LightColorScheme = lightColorScheme(
     outlineVariant = SandTone
 )
 
-/**
- * Dark color scheme for Tunisia Heritage Quest
- * Maintains visual identity with darker backgrounds
- */
 private val DarkColorScheme = darkColorScheme(
     primary = LightBlue,
     onPrimary = DarkBlue,
@@ -67,17 +59,8 @@ private val DarkColorScheme = darkColorScheme(
     outlineVariant = PrimaryBlue
 )
 
-/**
- * Tunisia Heritage Quest Theme
- *
- * Applies Material Design 3 theming with custom color palette
- * and typography tailored for the quiz application.
- *
- * @param darkTheme Whether to apply dark color scheme (default: false)
- * @param content The composable content to apply theme to
- */
 @Composable
-fun TunisiaHeritageQuestTheme(
+fun TuniQuestTheme(
     darkTheme: Boolean = false,
     content: @Composable () -> Unit
 ) {

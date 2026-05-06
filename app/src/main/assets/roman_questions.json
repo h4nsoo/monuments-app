@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "image": "eljem",
+    "question": "Which Roman amphitheater, once known as Thysdrus, is pictured here?",
+    "options": ["Carthage", "El Jem", "Uthina", "Leptis Magna"],
+    "correctAnswer": 1,
+    "category": "ROMAN",
+    "difficulty": "EASY"
+  },
+  {
+    "id": 2,
+    "image": "dougga",
+    "question": "Identify this UNESCO World Heritage site, famous for its exceptionally preserved Capitolium.",
+    "options": ["Musti", "Dougga", "Sicca Veneria", "Thuburbo Majus"],
+    "correctAnswer": 1,
+    "category": "ROMAN",
+    "difficulty": "EASY"
+  },
+  {
+    "id": 3,
+    "image": "sbetla",
+    "question": "What is the name of this site, unique for having three separate temples in its forum?",
+    "options": ["Sbeïtla (Sufetula)", "Makthar", "Haïdra", "Gightis"],
+    "correctAnswer": 0,
+    "category": "ROMAN",
+    "difficulty": "EASY"
+  },
+  {
+    "id": 4,
+    "image": "bullaregia",
+    "question": "Which archaeological site features these semi-subterranean Roman villas?",
+    "options": ["Utica", "Bulla Regia", "Chemtou", "Thubursicum Bure"],
+    "correctAnswer": 1,
+    "category": "ROMAN",
+    "difficulty": "EASY"
+  },
+  {
+    "id": 5,
+    "image": "thuburomajus",
+    "question": "Identify this site, originally a veteran colony, featuring the Temple of Mercury.",
+    "options": ["Gigthis", "Thuburbo Majus", "Zriba", "Uthina"],
+    "correctAnswer": 1,
+    "category": "ROMAN",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "id": 6,
+    "image": "zaghwatertemple",
+    "question": "What is the name of this Nymphaeum that served as the source for the Carthage aqueduct?",
+    "options": ["Baths of Trajan", "Zaghouan Water Temple", "Temple of Saturn", "Licinian Baths"],
+    "correctAnswer": 1,
+    "category": "ROMAN",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "id": 7,
+    "image": "oudhna",
+    "question": "Which site, located south of Tunis, features this massive amphitheater built into the hillside?",
+    "options": ["Pupput", "Oudhna (Uthina)", "Thapsus", "Hadrumetum"],
+    "correctAnswer": 1,
+    "category": "ROMAN",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "id": 8,
+    "image": "mkhtar",
+    "question": "Identify this site, known for the Arch of Trajan and its Numidian-Roman influence.",
+    "options": ["Mactaris (Makthar)", "Cilium", "Ammaedara", "Simitthus"],
+    "correctAnswer": 0,
+    "category": "ROMAN",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "id": 9,
+    "image": "moubared",
+    "question": "Which Roman site was famous for its 'Giallo Antico' (yellow marble) quarries?",
+    "options": ["Thignica", "Chemtou (Simitthus)", "Althiburos", "Aïn Tounga"],
+    "correctAnswer": 1,
+    "category": "ROMAN",
+    "difficulty": "HARD"
+  },
+  {
+    "id": 10,
+    "image": "haidra",
+    "question": "Identify this site, which served as a primary fortress for the Legio III Augusta.",
+    "options": ["Sufetula", "Haïdra (Ammaedara)", "Cillium", "Thelepte"],
+    "correctAnswer": 1,
+    "category": "ROMAN",
+    "difficulty": "HARD"
+  },
+  {
+    "id": 11,
+    "image": "kerkouane",
+    "question": "Identify this coastal town, considered the best-preserved Punic site in North Africa.",
+    "options": ["Carthage", "Kerkouane", "Utica", "Tipasa"],
+    "correctAnswer": 1,
+    "category": "ROMAN",
+    "difficulty": "HARD"
+  },
+  {
+    "id": 12,
+    "image": "cas",
+    "question": "Identify this iconic archaeological area, once the capital of a maritime empire.",
+    "options": ["Sousse", "Carthage", "Bizerte", "Neapolis"],
+    "correctAnswer": 1,
+    "category": "ROMAN",
+    "difficulty": "HARD"
+  }
+]

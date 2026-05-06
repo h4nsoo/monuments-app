@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Mohamedbelgacem"
+rootProject.name = "TuniQuest"
 include(":app")

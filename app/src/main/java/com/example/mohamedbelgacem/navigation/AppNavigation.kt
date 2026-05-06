@@ -11,23 +11,6 @@ import com.example.mohamedbelgacem.ui.screens.ResultScreen
 import com.example.mohamedbelgacem.ui.screens.SettingsScreen
 import com.example.mohamedbelgacem.ui.screens.SplashScreen
 
-/**
- * App Navigation Setup
- *
- * Defines the navigation graph for the Tunisia Heritage Quest app.
- * Handles route definitions and screen transitions.
- *
- * Routes:
- * - splash: Initial splash screen
- * - menu: Main menu screen
- * - categories: Category selection screen
- * - settings: Settings screen
- * - quiz/{category}/{difficulty}: Quiz screen with parameters
- * - results: Results display screen
- *
- * @param navController The NavHostController managing navigation
- * @param startDestination Initial screen to display
- */
 @Composable
 fun AppNavigation(
     navController: NavHostController,

@@ -10,12 +10,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 
-/**
- * Splash Screen
- *
- * Displayed when the app starts. Shows app name and branding.
- * User is automatically navigated to MainMenu after a delay (to be implemented).
- */
 @Composable
 fun SplashScreen() {
     Box(
@@ -25,7 +19,7 @@ fun SplashScreen() {
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = "Tunisia Heritage Quest",
+            text = "TuniQuest",
             style = MaterialTheme.typography.displayLarge,
             color = MaterialTheme.colorScheme.onPrimary,
             textAlign = TextAlign.Center
