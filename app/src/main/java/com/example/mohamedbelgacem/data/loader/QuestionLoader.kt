@@ -5,10 +5,14 @@ import com.example.mohamedbelgacem.data.model.Question
 import com.google.gson.Gson
 import java.io.IOException
 
-class QuestionLoader(private val context: Context) {
+interface QuestionSource {
+    fun loadQuestions(assetFileName: String = "roman_questions.json"): List<Question>
+}
+
+class QuestionLoader(private val context: Context) : QuestionSource {
     private val gson = Gson()
 
-    fun loadQuestions(assetFileName: String = "roman_questions.json"): List<Question> {
+    override fun loadQuestions(assetFileName: String): List<Question> {
         return try {
             context.assets.open(assetFileName).bufferedReader().use { reader ->
                 gson.fromJson(reader, Array<Question>::class.java)?.toList().orEmpty()

@@ -4,6 +4,8 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{float}
 \usepackage{hyperref}
 \usepackage{setspace}
 \usepackage{parskip}
@@ -15,6 +17,10 @@
 \begin{document}
 \maketitle
 \onehalfspacing
+
+\begin{center}
+\href{https://github.com/h4nsoo/monuments-app}{https://github.com/h4nsoo/monuments-app}
+\end{center}
 
 \tableofcontents
 \newpage
@@ -73,6 +79,57 @@ Key UX characteristics include:
 
 The result is a flow that is easy to understand and quick to use.
 
+\section{Screenshots}
+The following screenshots capture the current application flow and visual presentation.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth,height=0.42\textheight,keepaspectratio]{s1.png}
+    \caption{Application screenshot 1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth,height=0.42\textheight,keepaspectratio]{s2.png}
+    \caption{Application screenshot 2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth,height=0.42\textheight,keepaspectratio]{s2.2.png}
+    \caption{Application screenshot 3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth,height=0.42\textheight,keepaspectratio]{s2.3.png}
+    \caption{Application screenshot 4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth,height=0.42\textheight,keepaspectratio]{s2.4.png}
+    \caption{Application screenshot 5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth,height=0.42\textheight,keepaspectratio]{s2.5.png}
+    \caption{Application screenshot 6}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth,height=0.42\textheight,keepaspectratio]{s3.png}
+    \caption{Application screenshot 7}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth,height=0.42\textheight,keepaspectratio]{s4.png}
+    \caption{Application screenshot 8}
+\end{figure}
+
 \section{Functionality}
 Core functionality currently implemented includes:
 \begin{itemize}
@@ -97,6 +154,31 @@ Current strengths include:
 \end{itemize}
 
 Recommended next steps are broader instrumentation execution on unrestricted devices, stronger negative-case data tests, and continued refinement of route-level test depth.
+
+\section{AI-Assisted Development}
+
+This project was developed with significant assistance from GitHub Copilot AI, leveraging artificial intelligence for multiple aspects of the development lifecycle.
+
+\subsection{Data Collection and Curation}
+AI tools were used to research, compile, and structure the Tunisian cities dataset used in the quiz. The dataset includes curated facts about major Tunisian landmarks and cities, automatically formatted into the JSON structure required by the application's asset loader.
+
+\subsection{Feature Implementation}
+AI-assisted code generation was instrumental in implementing core application features, including UI screens, navigation flows, state management patterns, and the complete data layer architecture. This accelerated feature delivery while maintaining consistency with modern Android development practices.
+
+\subsection{Build Failure Resolution}
+AI-assisted debugging resolved multiple compilation and runtime issues:
+\begin{itemize}
+    \item Experimental API warnings (Material3 components)
+    \item Deprecated icon resource naming conventions
+    \item Drawable file naming case sensitivity on Android
+    \item Missing test dependencies and configuration errors
+    \item Gradle plugin compatibility and version alignment
+\end{itemize}
+
+The AI identified root causes efficiently, suggested fixes, and validated corrections without manual intervention, reducing development time significantly.
+
+\subsection{Documentation}
+Technical documentation, including this report and the comprehensive testing report, were generated with AI assistance to ensure clarity, consistency, and completeness.
 
 \section{Conclusion}
 Questini now has a solid and organized foundation suitable for iterative production development. The architecture, navigation flow, and test strategy align with modern Android engineering practices while remaining practical for fast feature delivery.

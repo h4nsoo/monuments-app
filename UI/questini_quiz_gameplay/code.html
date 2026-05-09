@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#d5e3ff",
+                        "on-surface": "#d6e3ff",
+                        "surface-tint": "#adc8f5",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#133a69",
+                        "on-primary-fixed": "#001c3b",
+                        "inverse-on-surface": "#233148",
+                        "secondary-fixed-dim": "#e9c349",
+                        "surface-container-highest": "#27354c",
+                        "on-secondary-fixed-variant": "#574500",
+                        "surface-bright": "#2c3951",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#adc8f5",
+                        "error-container": "#93000a",
+                        "on-primary": "#133155",
+                        "surface-variant": "#27354c",
+                        "tertiary": "#a7c8ff",
+                        "outline": "#8e9199",
+                        "secondary": "#e9c349",
+                        "on-secondary-fixed": "#241a00",
+                        "inverse-primary": "#455f87",
+                        "on-surface-variant": "#c4c6cf",
+                        "on-secondary-container": "#342800",
+                        "on-tertiary": "#03305f",
+                        "surface-container-low": "#0d1c32",
+                        "on-tertiary-fixed-variant": "#234777",
+                        "surface-container-lowest": "#010e24",
+                        "primary-container": "#1e3a5f",
+                        "inverse-surface": "#d6e3ff",
+                        "tertiary-fixed": "#d5e3ff",
+                        "outline-variant": "#43474e",
+                        "surface-container-high": "#1c2a41",
+                        "tertiary-fixed-dim": "#a7c8ff",
+                        "on-tertiary-fixed": "#001b3b",
+                        "primary": "#adc8f5",
+                        "secondary-container": "#af8d11",
+                        "on-secondary": "#3c2f00",
+                        "secondary-fixed": "#ffe088",
+                        "surface-dim": "#041329",
+                        "surface": "#041329",
+                        "surface-container": "#112036",
+                        "on-primary-fixed-variant": "#2d486d",
+                        "on-primary-container": "#8aa4cf",
+                        "on-tertiary-container": "#84a5da",
+                        "on-background": "#d6e3ff",
+                        "error": "#ffb4ab",
+                        "background": "#041329"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "16px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "container-margin": "20px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "margin-main": "20px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Noto Serif"],
+                        "body-lg": ["Noto Serif"],
+                        "headline-md": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: 100dvh;
+        }
+        .zellige-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0l5 15h15l-12 9 5 16-13-10-13 10 5-16-12-9h15z' fill='%23adc8f5' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface flex flex-col font-body-md">
+<!-- Top Bar Component -->
+<header class="bg-surface/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/20">
+<div class="flex justify-between items-center px-margin-main h-16 w-full max-w-md mx-auto">
+<button class="text-primary p-2 rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Questini</h1>
+<div class="w-10"></div> <!-- Spacer to center title -->
+</div>
+</header>
+<main class="flex-grow w-full max-w-md mx-auto px-margin-main pt-20 pb-24 flex flex-col gap-stack-md">
+<!-- Progress & Timer -->
+<section class="flex flex-col gap-xs">
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Historical Quest</span>
+<h2 class="font-headline-md text-xl text-primary-fixed-dim">Question 3/12</h2>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+<span class="font-label-sm text-label-sm font-bold">0:45</span>
+</div>
+</div>
+<!-- Timer Progress Bar -->
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-3/4 rounded-full flex items-center justify-end">
+<div class="w-3 h-3 bg-white rounded-full shadow-sm"></div>
+</div>
+</div>
+</section>
+<!-- Monument Visual -->
+<section class="relative">
+<div class="aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg bg-surface-container zellige-pattern border border-outline-variant/30">
+<img alt="Amphitheatre of El Jem" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq1JRgCJ-cMzSZPeUnqbWN1OQqNmAeXIoVeKwRww672XrcWODJZFoSIKpk38DJ0HDV1XzP-FV4LpIUaJKz5TG0BbRBYWccJERq7kyp5fSE-jDhrgvoMuMF9Lfgj6iezZky3eelt6OWPyZ9g3ZeMs4eSEEDfapH6ZABWZWyaUONPws5aWfJ4kEVFViOwak1wIPBhLn0UdYDzHIqsWexA0rLUV4rij2HeoOrpeolZQsz9g4WbZzsor6XJFlNfAy6UAcxpcADk4q40uwn"/>
+</div>
+<!-- Badge -->
+<div class="absolute -bottom-3 right-4 bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full shadow-md flex items-center gap-2 border border-white/10">
+<span class="material-symbols-outlined text-[16px]">military_tech</span>
+<span class="font-label-sm text-label-sm font-bold">50 PTS</span>
+</div>
+</section>
+<!-- Question Section -->
+<section class="flex flex-col gap-stack-md mt-4">
+<div class="text-center">
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight px-2">
+                    Which ancient civilization built this majestic coliseum in Tunisia?
+                </h3>
+</div>
+<!-- Answer Buttons -->
+<div class="grid grid-cols-1 gap-base">
+<!-- Option A -->
+<button class="group flex items-center p-md bg-surface-container-low border border-outline-variant/30 rounded-xl hover:bg-surface-variant transition-all duration-200 text-left active:scale-[0.98]">
+<span class="w-10 h-10 shrink-0 rounded-lg bg-surface-container-high flex items-center justify-center font-bold text-primary-fixed-dim mr-md">A</span>
+<span class="font-body-md text-on-surface-variant">The Carthaginians</span>
+</button>
+<!-- Option B (Selected) -->
+<button class="group flex items-center justify-between p-md bg-secondary-container border-2 border-secondary rounded-xl shadow-lg text-left active:scale-[0.98]">
+<div class="flex items-center">
+<span class="w-10 h-10 shrink-0 rounded-lg bg-secondary text-on-secondary flex items-center justify-center font-bold mr-md">B</span>
+<span class="font-body-md text-on-secondary-container font-bold">The Romans</span>
+</div>
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+<!-- Option C -->
+<button class="group flex items-center p-md bg-surface-container-low border border-outline-variant/30 rounded-xl hover:bg-surface-variant transition-all duration-200 text-left active:scale-[0.98]">
+<span class="w-10 h-10 shrink-0 rounded-lg bg-surface-container-high flex items-center justify-center font-bold text-primary-fixed-dim mr-md">C</span>
+<span class="font-body-md text-on-surface-variant">The Byzantines</span>
+</button>
+<!-- Option D -->
+<button class="group flex items-center p-md bg-surface-container-low border border-outline-variant/30 rounded-xl hover:bg-surface-variant transition-all duration-200 text-left active:scale-[0.98]">
+<span class="w-10 h-10 shrink-0 rounded-lg bg-surface-container-high flex items-center justify-center font-bold text-primary-fixed-dim mr-md">D</span>
+<span class="font-body-md text-on-surface-variant">The Phoenicians</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Bottom Nav Component -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 pb-safe bg-surface/90 backdrop-blur-md border-t border-outline-variant rounded-t-xl shadow-lg">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Categories</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-sm text-label-sm">Rankings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+</body></html>

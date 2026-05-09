@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Questini - Heritage Explorer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#d5e3ff",
+                    "on-surface": "#d6e3ff",
+                    "surface-tint": "#adc8f5",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#133a69",
+                    "on-primary-fixed": "#001c3b",
+                    "inverse-on-surface": "#233148",
+                    "secondary-fixed-dim": "#e9c349",
+                    "surface-container-highest": "#27354c",
+                    "on-secondary-fixed-variant": "#574500",
+                    "surface-bright": "#2c3951",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#adc8f5",
+                    "error-container": "#93000a",
+                    "on-primary": "#133155",
+                    "surface-variant": "#27354c",
+                    "tertiary": "#a7c8ff",
+                    "outline": "#8e9199",
+                    "secondary": "#e9c349",
+                    "on-secondary-fixed": "#241a00",
+                    "inverse-primary": "#455f87",
+                    "on-surface-variant": "#c4c6cf",
+                    "on-secondary-container": "#342800",
+                    "on-tertiary": "#03305f",
+                    "surface-container-low": "#0d1c32",
+                    "on-tertiary-fixed-variant": "#234777",
+                    "surface-container-lowest": "#010e24",
+                    "primary-container": "#1e3a5f",
+                    "inverse-surface": "#d6e3ff",
+                    "tertiary-fixed": "#d5e3ff",
+                    "outline-variant": "#43474e",
+                    "surface-container-high": "#1c2a41",
+                    "tertiary-fixed-dim": "#a7c8ff",
+                    "on-tertiary-fixed": "#001b3b",
+                    "primary": "#adc8f5",
+                    "secondary-container": "#af8d11",
+                    "on-secondary": "#3c2f00",
+                    "secondary-fixed": "#ffe088",
+                    "surface-dim": "#041329",
+                    "surface": "#041329",
+                    "surface-container": "#112036",
+                    "on-primary-fixed-variant": "#2d486d",
+                    "on-primary-container": "#8aa4cf",
+                    "on-tertiary-container": "#84a5da",
+                    "on-background": "#d6e3ff",
+                    "error": "#ffb4ab",
+                    "background": "#041329"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-main": "20px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "gutter-grid": "16px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Noto Serif"],
+                    "headline-md": ["Noto Serif"],
+                    "body-lg": ["Noto Serif"],
+                    "body-md": ["Noto Serif"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .zellige-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 30-30 30L0 30z' fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex items-center justify-center overflow-hidden">
+<!-- Background Texture -->
+<div class="absolute inset-0 zellige-overlay pointer-events-none"></div>
+<!-- Main Minimal Content -->
+<main class="relative z-10 flex flex-col items-center justify-center text-center px-margin-main max-w-md w-full">
+<!-- Brand Logo Container -->
+<div class="mb-12 relative">
+<div class="w-40 h-40 md:w-56 md:h-56 flex items-center justify-center overflow-hidden">
+<!-- Updated Brand Logo -->
+<img alt="Questini Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ugwMC6H7ho9d4V5YTIyDitkOzOi6xr79NFjXHVqNzGnBTRERsoJI_8N00QPeQmvLT8UZd7dVdby6vh7_IvYoYEVIlHpwDBDO0b718H5exw1ck0Vt6TQRs-uvf82fSb6O6kN5CsuNbgBs0xJLmlc1t0ZwF-s9hz2AduDkvT0KgCX8uDWn5vh2CLbriqnkxVbVsyOVT7BR_zD5wMWG5n-SQNTRr3p8_JuTu2tg560nuJE-65qkeejiPm8eASy4t5a9rsvwwoo6YBWeZc"/>
+</div>
+<!-- Subtle Glow -->
+<div class="absolute -inset-10 bg-primary/5 blur-3xl rounded-full -z-10"></div>
+</div>
+<!-- Brand Name & Minimal Tagline -->
+<div class="space-y-4">
+<h1 class="font-display-lg text-4xl text-on-background tracking-tight">
+                Questini
+            </h1>
+<div class="flex items-center justify-center gap-3">
+<div class="h-px w-6 bg-outline/20"></div>
+<p class="font-label-sm text-label-sm text-secondary tracking-[0.2em] uppercase">
+                    Heritage Explorer
+                </p>
+<div class="h-px w-6 bg-outline/20"></div>
+</div>
+</div>
+<!-- Removed Decorative Image for Minimal Look and Whitespace -->
+</main>
+<!-- Bottom Loading State - Simplified -->
+<div class="fixed bottom-16 flex flex-col items-center gap-4">
+<div class="w-12 h-[2px] bg-surface-variant/30 rounded-full overflow-hidden">
+<div class="w-1/2 h-full bg-secondary-fixed-dim rounded-full animate-[pan_1.5s_infinite_linear]"></div>
+</div>
+<span class="font-label-sm text-[10px] text-on-surface-variant/40 uppercase tracking-widest">
+            Discovery in progress
+        </span>
+</div>
+<style>
+        @keyframes pan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200%); }
+        }
+    </style>
+<!-- Screen Reader / SEO Content -->
+<h2 class="sr-only">Embark on a quest to discover historical monuments with Questini.</h2>
+</body></html>

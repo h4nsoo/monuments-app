@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Questini - Main Menu</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#d5e3ff",
+                        "on-surface": "#d6e3ff",
+                        "surface-tint": "#adc8f5",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#133a69",
+                        "on-primary-fixed": "#001c3b",
+                        "inverse-on-surface": "#233148",
+                        "secondary-fixed-dim": "#e9c349",
+                        "surface-container-highest": "#27354c",
+                        "on-secondary-fixed-variant": "#574500",
+                        "surface-bright": "#2c3951",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#adc8f5",
+                        "error-container": "#93000a",
+                        "on-primary": "#133155",
+                        "surface-variant": "#27354c",
+                        "tertiary": "#a7c8ff",
+                        "outline": "#8e9199",
+                        "secondary": "#e9c349",
+                        "on-secondary-fixed": "#241a00",
+                        "inverse-primary": "#455f87",
+                        "on-surface-variant": "#c4c6cf",
+                        "on-secondary-container": "#342800",
+                        "on-tertiary": "#03305f",
+                        "surface-container-low": "#0d1c32",
+                        "on-tertiary-fixed-variant": "#234777",
+                        "surface-container-lowest": "#010e24",
+                        "primary-container": "#1e3a5f",
+                        "inverse-surface": "#d6e3ff",
+                        "tertiary-fixed": "#d5e3ff",
+                        "outline-variant": "#43474e",
+                        "surface-container-high": "#1c2a41",
+                        "tertiary-fixed-dim": "#a7c8ff",
+                        "on-tertiary-fixed": "#001b3b",
+                        "primary": "#adc8f5",
+                        "secondary-container": "#af8d11",
+                        "on-secondary": "#3c2f00",
+                        "secondary-fixed": "#ffe088",
+                        "surface-dim": "#041329",
+                        "surface": "#041329",
+                        "surface-container": "#112036",
+                        "on-primary-fixed-variant": "#2d486d",
+                        "on-primary-container": "#8aa4cf",
+                        "on-tertiary-container": "#84a5da",
+                        "on-background": "#d6e3ff",
+                        "error": "#ffb4ab",
+                        "background": "#041329"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "16px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "container-margin": "20px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "margin-main": "20px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "gutter-grid": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Noto Serif"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Noto Serif"],
+                        "body-lg": ["Noto Serif"],
+                        "headline-md": ["Noto Serif"],
+                        "title-lg": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .zellige-pattern {
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvuaPsCrzm5avByMYBbJEWoS62Ss-Yb6m3WY7RxZtvAdPG8EYlNoPT1yAYV1HL66iu0nt7Mp0r40w3NksIC2OK9-045fZCK0kx0Xwe0W4Oz6d_yxguFPaS_uhj1r4C-r0IIjb6Lwt1Ncoz3QEgydnAkCBm8wkAyoqRZgwDxN3NzcL8H0KwbC920MrlIdrXh_7ASsS5Nr9YbZOn5_zIkWH3xJAUCkmIn3x4VcJfucVVnd-o3Nqsi_-83Yr747h6v9jV3gvm0sxMwoIW');
+            background-repeat: repeat;
+            opacity: 0.03;
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            filter: invert(1);
+        }
+        .bg-gradient-dark {
+            background: radial-gradient(circle at top, #112036 0%, #041329 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative overflow-x-hidden bg-gradient-dark">
+<div class="zellige-pattern"></div>
+<!-- TopAppBar -->
+<header class="bg-surface/80 fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-outline-variant/10">
+<div class="flex justify-between items-center px-margin-main h-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<img alt="Questini Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0ugwMC6H7ho9d4V5YTIyDitkOzOi6xr79NFjXHVqNzGnBTRERsoJI_8N00QPeQmvLT8UZd7dVdby6vh7_IvYoYEVIlHpwDBDO0b718H5exw1ck0Vt6TQRs-uvf82fSb6O6kN5CsuNbgBs0xJLmlc1t0ZwF-s9hz2AduDkvT0KgCX8uDWn5vh2CLbriqnkxVbVsyOVT7BR_zD5wMWG5n-SQNTRr3p8_JuTu2tg560nuJE-65qkeejiPm8eASy4t5a9rsvwwoo6YBWeZc"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" data-icon="notifications">notifications</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col items-center justify-start pt-24 pb-32 px-margin-main max-w-lg mx-auto w-full">
+<!-- Featured Content -->
+<div class="w-full text-center mb-stack-lg">
+<div class="w-24 h-24 mx-auto mb-stack-md bg-surface-container rounded-3xl flex items-center justify-center border border-outline-variant/20 shadow-xl overflow-hidden">
+<img alt="Carthage Icon" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAibJGV8l81XoXrzxXgEPoe9Gtz0C3D2KZpfOBGAswlL6Q68Wy1asQFB0uknGAIQvj9yqFt8qd_Qom3aJHlHp5pGkwU15BS2BzNFEw4dxgBTuCBNgimJ2FtiXJTJABC0PqJi2TrUaMUQnMLEz3MpiHi4b0KClicttC87c8GsVVZgaSSjhnR5uIOTw7kTX-rgGARnGLP76HIFssU-68CUVCju2JbDwzP0eZAkGD-59ynznG2T26_GJSgE9XTEmIfXM8-yk6UXr3BTXLK"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Secrets of Carthage</h2>
+<p class="text-on-surface-variant font-body-md text-sm">Discover the legend of Tunisia's ancient capital.</p>
+</div>
+<!-- Main Action Group -->
+<div class="w-full space-y-stack-md">
+<button class="w-full py-6 px-stack-lg bg-primary text-on-primary font-headline-md text-headline-md rounded-2xl shadow-xl shadow-primary/10 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-3 group">
+<span class="material-symbols-outlined text-3xl transition-transform group-active:translate-x-1" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+            Start Quiz
+        </button>
+<div class="grid grid-cols-2 gap-gutter-grid">
+<button class="flex flex-col items-center justify-center gap-2 py-5 bg-surface-container-low text-on-surface border border-outline-variant/10 rounded-2xl hover:bg-surface-container transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="grid_view">grid_view</span>
+<span class="font-label-sm text-label-sm font-medium">Categories</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 py-5 bg-surface-container-low text-on-surface border border-outline-variant/10 rounded-2xl hover:bg-surface-container transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-sm text-label-sm font-medium">Rankings</span>
+</button>
+</div>
+</div>
+<!-- Minimal Streak Info -->
+<div class="mt-stack-lg w-full flex items-center justify-center gap-4 text-on-surface-variant/80">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-label-sm font-label-sm">5 DAY STREAK</span>
+</div>
+<span class="w-1 h-1 rounded-full bg-outline-variant/30"></span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-label-sm font-label-sm">EXPLORER</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface/90 dark:bg-surface-container-lowest/95 backdrop-blur-xl border-t border-outline-variant/10 shadow-2xl">
+<!-- Home Tab -->
+<a class="flex flex-col items-center justify-center text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider font-bold mt-1">Home</span>
+</a>
+<!-- Categories Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider mt-1">Explore</span>
+</a>
+<!-- Rankings Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider mt-1">Scores</span>
+</a>
+<!-- Settings Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

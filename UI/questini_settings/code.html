@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "primary-fixed": "#d5e3ff",
+                  "on-surface": "#d6e3ff",
+                  "surface-tint": "#adc8f5",
+                  "on-error-container": "#ffdad6",
+                  "tertiary-container": "#133a69",
+                  "on-primary-fixed": "#001c3b",
+                  "inverse-on-surface": "#233148",
+                  "secondary-fixed-dim": "#e9c349",
+                  "surface-container-highest": "#27354c",
+                  "on-secondary-fixed-variant": "#574500",
+                  "surface-bright": "#2c3951",
+                  "on-error": "#690005",
+                  "primary-fixed-dim": "#adc8f5",
+                  "error-container": "#93000a",
+                  "on-primary": "#133155",
+                  "surface-variant": "#27354c",
+                  "tertiary": "#a7c8ff",
+                  "outline": "#8e9199",
+                  "secondary": "#e9c349",
+                  "on-secondary-fixed": "#241a00",
+                  "inverse-primary": "#455f87",
+                  "on-surface-variant": "#c4c6cf",
+                  "on-secondary-container": "#342800",
+                  "on-tertiary": "#03305f",
+                  "surface-container-low": "#0d1c32",
+                  "on-tertiary-fixed-variant": "#234777",
+                  "surface-container-lowest": "#010e24",
+                  "primary-container": "#1e3a5f",
+                  "inverse-surface": "#d6e3ff",
+                  "tertiary-fixed": "#d5e3ff",
+                  "outline-variant": "#43474e",
+                  "surface-container-high": "#1c2a41",
+                  "tertiary-fixed-dim": "#a7c8ff",
+                  "on-tertiary-fixed": "#001b3b",
+                  "primary": "#adc8f5",
+                  "secondary-container": "#af8d11",
+                  "on-secondary": "#3c2f00",
+                  "secondary-fixed": "#ffe088",
+                  "surface-dim": "#041329",
+                  "surface": "#041329",
+                  "surface-container": "#112036",
+                  "on-primary-fixed-variant": "#2d486d",
+                  "on-primary-container": "#8aa4cf",
+                  "on-tertiary-container": "#84a5da",
+                  "on-background": "#d6e3ff",
+                  "error": "#ffb4ab",
+                  "background": "#041329"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "base": "8px",
+                  "gutter": "16px",
+                  "sm": "12px",
+                  "md": "24px",
+                  "xl": "64px",
+                  "container-margin": "20px",
+                  "lg": "48px",
+                  "xs": "4px"
+          },
+          "fontFamily": {
+                  "body-md": ["Noto Serif"],
+                  "label-sm": ["Inter"],
+                  "display-lg": ["Noto Serif"],
+                  "body-lg": ["Noto Serif"],
+                  "headline-md": ["Noto Serif"]
+          },
+          "fontSize": {
+                  "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                  "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                  "display-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .zellige-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0l5 15h15l-12 9 5 16-13-10-13 10 5-16-12-9h15z' fill='%23adc8f5' fill-opacity='0.05'/%3E%3C/svg%3E");
+    }
+    body {
+      min-height: 100dvh;
+    }
+    .pb-safe {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- Top App Bar -->
+<header class="flex justify-center items-center px-container-margin h-16 w-full fixed top-0 z-50 backdrop-blur-md bg-inverse-surface/10 dark:bg-inverse-surface/80 shadow-md">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-md text-headline-md font-bold text-tertiary-fixed-dim">Questini</h1>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-container-margin pt-24 pb-32 flex flex-col gap-md">
+<section>
+<div class="mb-md">
+<h2 class="font-headline-md text-headline-md text-primary">Preferences</h2>
+<p class="font-body-md text-on-surface-variant">Customize your heritage discovery experience.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Challenge Level -->
+<div class="bg-surface-container-high zellige-pattern p-md rounded-xl shadow-sm border border-outline-variant/20 flex flex-col gap-sm">
+<div class="flex items-center gap-xs text-primary">
+<span class="material-symbols-outlined">signal_cellular_alt</span>
+<h3 class="font-headline-md text-[20px]">Challenge Level</h3>
+</div>
+<p class="font-body-md text-on-surface-variant mb-2">Select the depth of historical knowledge required for your quest.</p>
+<div class="bg-surface-container-lowest p-1 rounded-xl flex w-full">
+<button class="flex-1 py-3 px-4 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-variant/50 transition-all">
+              Easy
+            </button>
+<button class="flex-1 py-3 px-4 rounded-lg font-label-sm text-label-sm bg-primary text-on-primary shadow-md">
+              Medium
+            </button>
+<button class="flex-1 py-3 px-4 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-variant/50 transition-all">
+              Hard
+            </button>
+</div>
+<div class="mt-4 p-sm bg-surface-container-low rounded-lg flex gap-sm items-center">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Medium difficulty includes questions about local architecture and specific historical dates.</p>
+</div>
+</div>
+<!-- Quest Mechanics -->
+<div class="bg-surface-container-high zellige-pattern p-md rounded-xl shadow-sm border border-outline-variant/20 flex flex-col gap-sm">
+<div class="flex items-center gap-xs text-primary">
+<span class="material-symbols-outlined">timer</span>
+<h3 class="font-headline-md text-[20px]">Quest Mechanics</h3>
+</div>
+<p class="font-body-md text-on-surface-variant mb-2">Manage the intensity of your learning journey.</p>
+<div class="flex flex-col gap-sm">
+<div class="bg-surface-container-lowest p-sm rounded-xl flex items-center justify-between border border-transparent hover:border-primary/20 transition-all">
+<div class="flex flex-col">
+<span class="font-headline-md text-[16px] text-primary">Timer (15s)</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Rapid response challenge</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-12 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="bg-surface-container-lowest p-sm rounded-xl flex items-center justify-between border border-transparent hover:border-primary/20 transition-all">
+<div class="flex flex-col">
+<span class="font-headline-md text-[16px] text-primary">Audio Guide</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Traditional Malouf narration</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-12 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Preview Card -->
+<div class="md:col-span-2 bg-surface-container-high shadow-lg rounded-xl overflow-hidden relative min-h-[240px] flex flex-col justify-end p-md group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A panoramic view of the ancient Medina of Tunis at golden hour." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTmkkaeV2ukunAP06T0W0qDMfkK8qljhdUxRjVkpljJxO_il_-0Goyuk9fz3kU5zXzxu4rCVNFXkm3OLNSyT-J6-iBRhaf0I0ExWCJhnhRVg81pJ0PHEQEB5c0ueuiPLD52DUQBlhaJW3MGf4XtOpopNx7u9jxQX-0XXPmYQF74RzzXWAxOYjIuwWEbuH-CGxQB04tQrWQwor3bQisK5Vml7a_a5a9y56bsgwPkIvylC4JfM2JHst4LXXwBvDZ2GfFGsNxXfG6z7pc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/90 via-surface/40 to-transparent"></div>
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md text-primary-fixed mb-2">Heritage Preview</h3>
+<p class="text-on-surface-variant font-body-md">Your current settings are optimized for exploring the Great Mosque of Kairouan.</p>
+</div>
+</div>
+<div class="flex flex-col gap-gutter">
+<button class="bg-primary text-on-primary py-md rounded-xl font-headline-md text-[18px] shadow-md hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-sm">
+<span>Start Quest</span>
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+<button class="bg-secondary-container text-on-secondary-container py-md rounded-xl font-headline-md text-[18px] border border-outline-variant/10 hover:bg-secondary-container/80 active:scale-95 transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">restart_alt</span>
+<span>Reset Defaults</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-md border-t border-outline pb-safe">
+<div class="flex flex-col items-center justify-center text-outline-variant px-4 py-1 hover:bg-surface-variant transition-all active:scale-90 duration-150 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline-variant px-4 py-1 hover:bg-surface-variant transition-all active:scale-90 duration-150 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm mt-1">Categories</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline-variant px-4 py-1 hover:bg-surface-variant transition-all active:scale-90 duration-150 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-sm text-label-sm mt-1">Rankings</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-fixed-variant text-primary-fixed rounded-full px-4 py-1 active:scale-90 duration-150 ease-in-out">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-sm text-label-sm mt-1">Settings</span>
+</div>
+</nav>
+</body></html>
